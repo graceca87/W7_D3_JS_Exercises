@@ -64,5 +64,3 @@ printMovieInfo('Indiana Jones and the Dark Knight')
 // Example 2
 printMovieInfo('ET')
 // Output: *Warning* ET cannot be accessed because it it too short
-
-// still not understanding .then() but sending what I have
