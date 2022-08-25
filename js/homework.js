@@ -54,7 +54,7 @@ function getMovieInfo(movieName){
 
 function printMovieInfo(movieName){
     getMovieInfo(movieName)
-        .then(movie => console.log(`${movie.title} directed by ${movie.director}. A story of ${movie.description} that runs for ${movie.runtime}`))
+        .then(movie => console.log(`${movie.title} directed by ${movie.director}. A story of ${movie.description} that runs for ${movie.runtime} minutes.`))
         .catch(err => console.warn(err))
 }
 // Example 1
