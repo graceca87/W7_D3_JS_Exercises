@@ -1,3 +1,5 @@
+/////////////////////////////////////////////////////////////////////////////////
+
 // // Exercise 1 - Closures
 // Update the createAdder function below so that
 // the below code works as intended
@@ -23,3 +25,45 @@ console.log(addThree(17)); // 20
 console.log(addThree(50)); // 53
 console.log(addThree(100)); // 103
 console.log(addThree(92)); // 95
+
+/////////////////////////////////////////////////////////////////////////////////
+
+// 
+// Exercise 2 - Promises 
+// Using the below getMovieInfo function, which is a Promised-base function, write an asynchronous function
+//  (.then().catch() or async/await) called printMovieInfo that will take in a movie title and then either displays
+//   the movie information or logs an error with a console.warn().
+
+
+function getMovieInfo(movieName){
+    return new Promise((resolve, reject) => {
+        if (movieName.length > 5){
+            let movie = {
+                id: 123,
+                title: movieName,
+                director: 'Christopher Spielberg',
+                runtime: 157,
+                description: 'Good vs Evil'
+            }
+            resolve(movie)
+        } else {
+            reject(`${movieName} cannot be accessed because it is too short.`)
+        }
+    })
+}
+
+function printMovieInfo(movieName){
+    getMovieInfo(movieName)
+        .then(movie => console.log(movie))
+        .then(title, director, description, runtime => console.log(`${title} directed by ${director}. A story of ${description} that runs for ${runtime}`))
+        .catch(err => console.warn(err))
+}
+// Example 1
+printMovieInfo('Indiana Jones and the Dark Knight')
+// Output: Indiana Jones and the Dark Knight directed by Christopher Spielberg. A story of Good vs Evil that runs for 157 minutes.
+
+// Example 2
+printMovieInfo('ET')
+// Output: *Warning* ET cannot be accessed because it it too short
+
+// still not understanding .then() but sending what I have
